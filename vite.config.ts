@@ -8,6 +8,8 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // GitHub Pages 部署配置
+  base: process.env.NODE_ENV === 'production' ? '/vue3-app/' : '/',
   plugins: [
     vue(),
     AutoImport({
