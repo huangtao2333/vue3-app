@@ -230,18 +230,18 @@ export function debounce<T extends (...args: any[]) => any>(
   immediate = false
 ): (...args: Parameters<T>) => void {
   let timeout: NodeJS.Timeout | null = null
-  
-  return function (...args: Parameters<T>) {
+
+  return function (this: any, ...args: Parameters<T>) {
     const later = () => {
       timeout = null
       if (!immediate) func.apply(this, args)
     }
-    
+
     const callNow = immediate && !timeout
-    
+
     if (timeout) clearTimeout(timeout)
     timeout = setTimeout(later, wait)
-    
+
     if (callNow) func.apply(this, args)
   }
 }
@@ -252,8 +252,8 @@ export function throttle<T extends (...args: any[]) => any>(
   wait: number
 ): (...args: Parameters<T>) => void {
   let inThrottle = false
-  
-  return function (...args: Parameters<T>) {
+
+  return function (this: any, ...args: Parameters<T>) {
     if (!inThrottle) {
       func.apply(this, args)
       inThrottle = true

@@ -67,7 +67,7 @@ class Request {
         }
 
         // 业务错误
-        if (response.config.showError !== false) {
+        if ((response.config as any).showError !== false) {
           showToast(data.message || '请求失败')
         }
 

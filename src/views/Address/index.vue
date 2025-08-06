@@ -152,14 +152,28 @@ import Empty from '@/components/Common/Empty.vue'
 import { showConfirmDialog, showToast } from 'vant'
 import { getAddressList } from '@/api/address'
 
+// 地址类型定义
+interface Address {
+  id: string
+  name: string
+  phone: string
+  province: string
+  city: string
+  district: string
+  address: string
+  detail: string
+  tag?: string
+  isDefault: boolean
+}
+
 const router = useRouter()
 const addressStore = useAddressStore()
 
 // 响应式数据
-const addresses = ref([])
+const addresses = ref<Address[]>([])
 const showAddressForm = ref(false)
 const showAreaPicker = ref(false)
-const editingAddress = ref(null)
+const editingAddress = ref<Address | null>(null)
 
 // 表单数据
 const addressForm = reactive({
