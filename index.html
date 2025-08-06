@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Vue3仿饿了吗高性能App项目实战" />
+    <meta name="keywords" content="Vue3,饿了吗,外卖,App,移动端" />
+    <meta name="theme-color" content="#1989fa" />
+    <title>Vue3饿了吗App</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html, body {
+        height: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: #f8f8f8;
+      }
+      
+      #app {
+        height: 100%;
+      }
+      
+      .loading {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="loading">加载中...</div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

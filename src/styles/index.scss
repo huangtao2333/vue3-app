@@ -1,0 +1,177 @@
+@import './variables.scss';
+
+// 重置样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $background-color;
+  color: $text-color;
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+}
+
+// 清除默认样式
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+input, textarea {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
+}
+
+// 通用工具类
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ellipsis-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.ellipsis-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+// 间距工具类
+@for $i from 0 through 10 {
+  .m-#{$i} { margin: #{$i * 4}px; }
+  .mt-#{$i} { margin-top: #{$i * 4}px; }
+  .mr-#{$i} { margin-right: #{$i * 4}px; }
+  .mb-#{$i} { margin-bottom: #{$i * 4}px; }
+  .ml-#{$i} { margin-left: #{$i * 4}px; }
+  .mx-#{$i} { margin-left: #{$i * 4}px; margin-right: #{$i * 4}px; }
+  .my-#{$i} { margin-top: #{$i * 4}px; margin-bottom: #{$i * 4}px; }
+  
+  .p-#{$i} { padding: #{$i * 4}px; }
+  .pt-#{$i} { padding-top: #{$i * 4}px; }
+  .pr-#{$i} { padding-right: #{$i * 4}px; }
+  .pb-#{$i} { padding-bottom: #{$i * 4}px; }
+  .pl-#{$i} { padding-left: #{$i * 4}px; }
+  .px-#{$i} { padding-left: #{$i * 4}px; padding-right: #{$i * 4}px; }
+  .py-#{$i} { padding-top: #{$i * 4}px; padding-bottom: #{$i * 4}px; }
+}
+
+// 页面容器
+.page {
+  min-height: 100vh;
+  background-color: $background-color;
+  
+  &.has-tabbar {
+    padding-bottom: 50px;
+  }
+}
+
+.container {
+  max-width: 375px;
+  margin: 0 auto;
+  background-color: $white;
+}
+
+// 卡片样式
+.card {
+  background-color: $white;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-light;
+  overflow: hidden;
+}
+
+// 分割线
+.divider {
+  height: 1px;
+  background-color: $border-color;
+  margin: $padding-md 0;
+}
+
+// 加载状态
+.loading-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $padding-xl;
+  color: $text-color-3;
+}
+
+// 空状态
+.empty-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $padding-xl * 2;
+  color: $text-color-3;
+  
+  .empty-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: $padding-md;
+    opacity: 0.5;
+  }
+  
+  .empty-text {
+    font-size: $font-size-md;
+  }
+}

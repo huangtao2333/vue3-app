@@ -1,0 +1,98 @@
+// 主题色彩
+$primary-color: #1989fa;
+$success-color: #07c160;
+$warning-color: #ff976a;
+$danger-color: #ee0a24;
+
+// 中性色彩
+$white: #ffffff;
+$black: #000000;
+$gray-1: #f7f8fa;
+$gray-2: #f2f3f5;
+$gray-3: #ebedf0;
+$gray-4: #dcdee0;
+$gray-5: #c8c9cc;
+$gray-6: #969799;
+$gray-7: #646566;
+$gray-8: #323233;
+
+// 文字色彩
+$text-color: #323233;
+$text-color-2: #646566;
+$text-color-3: #969799;
+
+// 背景色彩
+$background-color: #f7f8fa;
+$background-color-light: #fafafa;
+
+// 边框色彩
+$border-color: #ebedf0;
+$border-color-light: #f2f3f5;
+
+// 阴影
+$box-shadow-light: 0 2px 12px rgba(100, 101, 102, 0.12);
+$box-shadow: 0 2px 8px rgba(100, 101, 102, 0.15);
+
+// 圆角
+$border-radius-sm: 2px;
+$border-radius-md: 4px;
+$border-radius-lg: 8px;
+$border-radius-xl: 12px;
+
+// 间距
+$padding-xs: 4px;
+$padding-sm: 8px;
+$padding-md: 12px;
+$padding-lg: 16px;
+$padding-xl: 20px;
+
+// 字体大小
+$font-size-xs: 10px;
+$font-size-sm: 12px;
+$font-size-md: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 18px;
+
+// 行高
+$line-height-xs: 14px;
+$line-height-sm: 18px;
+$line-height-md: 20px;
+$line-height-lg: 22px;
+$line-height-xl: 24px;
+
+// 动画时长
+$animation-duration-fast: 0.2s;
+$animation-duration-base: 0.3s;
+$animation-duration-slow: 0.5s;
+
+// Z-index
+$z-index-normal: 1;
+$z-index-dropdown: 10;
+$z-index-sticky: 99;
+$z-index-fixed: 100;
+$z-index-modal-backdrop: 2000;
+$z-index-modal: 2001;
+$z-index-toast: 2002;
+
+// Mixins
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin ellipsis-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin ellipsis-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
