@@ -96,16 +96,16 @@ const submitting = ref(false)
 // 类型选择器
 const showTypePicker = ref(false)
 const typeOptions = [
-  '功能异常',
-  '界面问题',
-  '性能问题',
-  '功能建议',
-  '其他问题'
+  { text: '功能异常', value: '功能异常' },
+  { text: '界面问题', value: '界面问题' },
+  { text: '性能问题', value: '性能问题' },
+  { text: '功能建议', value: '功能建议' },
+  { text: '其他问题', value: '其他问题' }
 ]
 
 // 确认选择类型
-const onTypeConfirm = ({ selectedValues }: any) => {
-  form.value.type = selectedValues[0]
+const onTypeConfirm = ({ selectedOptions }: any) => {
+  form.value.type = selectedOptions[0]?.text || selectedOptions[0]
   showTypePicker.value = false
 }
 

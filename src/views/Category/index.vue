@@ -59,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import NavBar from '@/components/Layout/NavBar.vue'
 import TabBar from '@/components/Layout/TabBar.vue'
@@ -68,14 +68,33 @@ import Loading from '@/components/Common/Loading.vue'
 import Empty from '@/components/Common/Empty.vue'
 import { getCategoryList, getShopsByCategory } from '@/api/category'
 
+// 类型定义
+interface Category {
+  id: string
+  name: string
+  icon: string
+}
+
+interface Shop {
+  id: string
+  name: string
+  image: string
+  rating: string
+  deliveryTime: string
+  deliveryFee: number
+  minOrder: number
+  distance: string
+  tags: string[]
+}
+
 const router = useRouter()
 
 // 响应式数据
-const categories = ref([])
-const activeCategory = ref('')
-const shops = ref([])
-const loading = ref(false)
-const sortType = ref('default')
+const categories = ref<Category[]>([])
+const activeCategory = ref<string>('')
+const shops = ref<Shop[]>([])
+const loading = ref<boolean>(false)
+const sortType = ref<string>('default')
 
 // 排序选项
 const sortOptions = [
@@ -87,7 +106,7 @@ const sortOptions = [
 
 // 计算属性
 const currentCategoryName = computed(() => {
-  const category = categories.value.find(c => c.id === activeCategory.value)
+  const category = categories.value.find((c: Category) => c.id === activeCategory.value)
   return category?.name || ''
 })
 

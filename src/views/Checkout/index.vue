@@ -114,6 +114,24 @@ import { useRouter, useRoute } from 'vue-router'
 import { showToast, showConfirmDialog } from 'vant'
 import NavBar from '@/components/Layout/NavBar.vue'
 
+// 类型定义
+interface Coupon {
+  id: string
+  name: string
+  amount: number
+  minAmount: number
+  expireTime: string
+}
+
+interface OrderItem {
+  id: string
+  name: string
+  spec: string
+  price: number
+  quantity: number
+  image: string
+}
+
 const router = useRouter()
 const route = useRoute()
 
@@ -156,7 +174,7 @@ const orderItems = ref([
 ])
 
 // 优惠券
-const selectedCoupon = ref(null)
+const selectedCoupon = ref<Coupon | null>(null)
 
 // 费用
 const deliveryFee = ref(3)
