@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3饿了吗高性能App - 项目展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .feature {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature h3 {
+            color: #1989fa;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .feature ul {
+            list-style: none;
+        }
+        
+        .feature li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .feature li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .tech-tag {
+            background: #1989fa;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #1989fa;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background: #1677ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(25, 137, 250, 0.3);
+        }
+        
+        .btn.secondary {
+            background: #28a745;
+        }
+        
+        .btn.secondary:hover {
+            background: #218838;
+        }
+        
+        .status {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .loading {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #1989fa;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍔 Vue3饿了吗高性能App</h1>
+            <p>现代化的外卖应用解决方案</p>
+        </div>
+        
+        <div class="card">
+            <div class="status">
+                <strong>🚀 项目状态：</strong> GitHub Pages 部署中...
+            </div>
+            
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>正在构建和部署应用，请稍候...</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>📱 项目介绍</h2>
+            <p>这是一个基于 Vue3 + TypeScript + Vite 构建的高性能外卖应用，采用现代化的前端技术栈，实现了完整的外卖业务流程。</p>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">Vue 3</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Vite</span>
+                <span class="tech-tag">Vant UI</span>
+                <span class="tech-tag">Pinia</span>
+                <span class="tech-tag">PWA</span>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>🏠 核心功能</h3>
+                <ul>
+                    <li>用户注册/登录</li>
+                    <li>首页推荐</li>
+                    <li>商家列表</li>
+                    <li>商品搜索</li>
+                    <li>购物车管理</li>
+                    <li>订单管理</li>
+                    <li>地址管理</li>
+                    <li>个人中心</li>
+                </ul>
+            </div>
+            
+            <div class="feature">
+                <h3>⚡ 性能优化</h3>
+                <ul>
+                    <li>虚拟滚动列表</li>
+                    <li>图片懒加载</li>
+                    <li>路由懒加载</li>
+                    <li>组件按需加载</li>
+                    <li>资源预加载</li>
+                    <li>缓存策略</li>
+                </ul>
+            </div>
+            
+            <div class="feature">
+                <h3>📱 PWA功能</h3>
+                <ul>
+                    <li>Service Worker</li>
+                    <li>离线缓存</li>
+                    <li>桌面安装</li>
+                    <li>推送通知</li>
+                    <li>后台同步</li>
+                </ul>
+            </div>
+            
+            <div class="feature">
+                <h3>🎨 用户体验</h3>
+                <ul>
+                    <li>加载状态</li>
+                    <li>错误处理</li>
+                    <li>骨架屏</li>
+                    <li>下拉刷新</li>
+                    <li>上拉加载</li>
+                    <li>手势操作</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <a href="https://github.com/huangtao2333/vue3-app" class="btn" target="_blank">
+                📚 查看源码
+            </a>
+            <a href="#" class="btn secondary" id="app-link">
+                🚀 体验应用 (构建中...)
+            </a>
+        </div>
+        
+        <div class="card">
+            <h2>🛠️ 技术栈</h2>
+            <p><strong>前端框架：</strong> Vue 3.4.0 + TypeScript 5.3.0</p>
+            <p><strong>构建工具：</strong> Vite 5.0.8</p>
+            <p><strong>UI组件库：</strong> Vant 4.8.0</p>
+            <p><strong>状态管理：</strong> Pinia 2.1.7</p>
+            <p><strong>路由管理：</strong> Vue Router 4.2.5</p>
+            <p><strong>网络请求：</strong> Axios 1.6.0</p>
+            <p><strong>PWA支持：</strong> vite-plugin-pwa</p>
+        </div>
+    </div>
+    
+    <script>
+        // 检查应用是否部署完成
+        function checkAppStatus() {
+            const appUrl = 'https://huangtao2333.github.io/vue3-app/';
+            
+            fetch(appUrl, { method: 'HEAD', mode: 'no-cors' })
+                .then(() => {
+                    // 应用可访问
+                    document.querySelector('.status').innerHTML = 
+                        '<strong>✅ 部署成功！</strong> 应用已上线，可以正常访问。';
+                    document.querySelector('.status').style.background = '#d4edda';
+                    
+                    document.querySelector('.loading').style.display = 'none';
+                    
+                    const appLink = document.getElementById('app-link');
+                    appLink.href = appUrl;
+                    appLink.textContent = '🚀 立即体验应用';
+                    appLink.classList.remove('secondary');
+                })
+                .catch(() => {
+                    // 应用还未部署完成
+                    setTimeout(checkAppStatus, 30000); // 30秒后重试
+                });
+        }
+        
+        // 页面加载后开始检查
+        window.addEventListener('load', () => {
+            setTimeout(checkAppStatus, 5000); // 5秒后开始检查
+        });
+    </script>
+</body>
+</html>
