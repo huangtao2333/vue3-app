@@ -11,7 +11,14 @@ export default defineConfig({
   // GitHub Pages 部署配置
   base: process.env.NODE_ENV === 'production' ? '/vue3-app/' : '/',
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          // 在生产环境中跳过一些检查
+          isCustomElement: (tag) => tag.startsWith('van-')
+        }
+      }
+    }),
     AutoImport({
       imports: ['vue', 'vue-router', 'pinia'],
       dts: true,

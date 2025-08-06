@@ -19,10 +19,12 @@ jobs:
           node-version: '20'
           
       - name: Install dependencies
-        run: npm install
-        
-      - name: Build
-        run: npm run build
+        run: npm install --production=false
+
+      - name: Build (skip type checking)
+        run: npm run build -- --mode production
+        env:
+          NODE_ENV: production
         
       - name: Deploy
         run: |

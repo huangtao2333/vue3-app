@@ -197,7 +197,13 @@ export const compressImage = (
       
       // 绘制并压缩
       ctx.drawImage(img, 0, 0, width, height)
-      canvas.toBlob(resolve, 'image/jpeg', quality)
+      canvas.toBlob((blob) => {
+        if (blob) {
+          resolve(blob)
+        } else {
+          reject(new Error('Failed to compress image'))
+        }
+      }, 'image/jpeg', quality)
     }
     
     img.src = URL.createObjectURL(file)

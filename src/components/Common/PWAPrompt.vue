@@ -83,7 +83,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useNetwork } from '@/utils/network'
 
 // PWA 相关状态
@@ -204,7 +204,7 @@ const dismissUpdate = () => {
 }
 
 // 监听网络状态变化
-watch(isOnline, (online) => {
+watch(isOnline, (online: boolean) => {
   showOfflineNotify.value = !online
 })
 

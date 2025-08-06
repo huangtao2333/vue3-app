@@ -1,12 +1,12 @@
-import { vi } from 'vitest'
+import { vi, afterEach } from 'vitest'
 import { config } from '@vue/test-utils'
 
 // Mock IntersectionObserver
-global.IntersectionObserver = vi.fn(() => ({
+global.IntersectionObserver = vi.fn().mockImplementation(() => ({
   disconnect: vi.fn(),
   observe: vi.fn(),
   unobserve: vi.fn(),
-}))
+})) as any
 
 // Mock ResizeObserver
 global.ResizeObserver = vi.fn(() => ({
@@ -36,8 +36,10 @@ const localStorageMock = {
   setItem: vi.fn(),
   removeItem: vi.fn(),
   clear: vi.fn(),
+  length: 0,
+  key: vi.fn(),
 }
-global.localStorage = localStorageMock
+Object.defineProperty(global, 'localStorage', { value: localStorageMock })
 
 // Mock sessionStorage
 const sessionStorageMock = {
@@ -45,8 +47,10 @@ const sessionStorageMock = {
   setItem: vi.fn(),
   removeItem: vi.fn(),
   clear: vi.fn(),
+  length: 0,
+  key: vi.fn(),
 }
-global.sessionStorage = sessionStorageMock
+Object.defineProperty(global, 'sessionStorage', { value: sessionStorageMock })
 
 // Mock navigator
 Object.defineProperty(navigator, 'onLine', {
@@ -67,11 +71,11 @@ Object.defineProperty(navigator, 'geolocation', {
 global.fetch = vi.fn()
 
 // Mock Image
-global.Image = class {
+global.Image = class MockImage {
   onload: (() => void) | null = null
   onerror: (() => void) | null = null
   src = ''
-  
+
   constructor() {
     setTimeout(() => {
       if (this.onload) {
@@ -79,7 +83,7 @@ global.Image = class {
       }
     }, 100)
   }
-}
+} as any
 
 // Vue Test Utils 全局配置
 config.global.mocks = {

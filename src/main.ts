@@ -53,7 +53,13 @@ import '@vant/touch-emulator'
 import './styles/index.scss'
 
 // PWA
-import { registerSW } from 'virtual:pwa-register'
+let registerSW: any
+try {
+  registerSW = (await import('virtual:pwa-register')).registerSW
+} catch {
+  // PWA not available in development
+  registerSW = () => {}
+}
 
 const app = createApp(App)
 

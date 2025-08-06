@@ -12,8 +12,7 @@
       :key="item.name"
       :name="item.name"
       :icon="item.icon"
-      :badge="item.badge"
-      :dot="item.dot"
+      :badge="'badge' in item ? item.badge : undefined"
     >
       {{ item.text }}
     </van-tabbar-item>
