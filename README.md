@@ -236,28 +236,6 @@ test: 测试相关
 chore: 构建过程或辅助工具的变动
 ```
 
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
-
-## 👥 团队
-
-- **项目负责人**: [Your Name]
-- **前端开发**: [Developer Names]
-- **UI设计**: [Designer Names]
-- **测试**: [Tester Names]
-
-## 📞 联系我们
-
-- 项目地址: [GitHub Repository]
-- 问题反馈: [GitHub Issues]
-- 邮箱: [your-email@example.com]
 
 ## 🙏 致谢
 
-感谢以下开源项目：
-- [Vue.js](https://vuejs.org/)
-- [Vant](https://vant-contrib.gitee.io/vant/)
-- [Vite](https://vitejs.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Pinia](https://pinia.vuejs.org/)
